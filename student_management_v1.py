@@ -7,6 +7,12 @@ FILE_NAME = os.path.join(BASE_DIR, "students.csv")
 
 # ---------- ADD STUDENT ----------
 def add_student():
+
+    sid = input("Enter Student ID: ")
+    name = input("Enter Name: ")
+    dept = input("Enter Department: ")
+    marks = input("Enter Marks: ")
+    
     with open (FILE_NAME,"r")as f:
         reader = csv.reader(f)
         next(reader, None)
@@ -20,11 +26,6 @@ def add_student():
         # If file is empty, write header
         if os.stat(FILE_NAME).st_size == 0:
             writer.writerow(["ID","Name","Department","Marks"])
-
-        sid = input("Enter Student ID: ")
-        name = input("Enter Name: ")
-        dept = input("Enter Department: ")
-        marks = input("Enter Marks: ")
 
         writer.writerow([sid,name,dept,marks])
         print("Student added successfully")
@@ -169,4 +170,5 @@ while True:
         print("👋 Exiting program")
         break
     else:
+
         print(" Invalid choice")
